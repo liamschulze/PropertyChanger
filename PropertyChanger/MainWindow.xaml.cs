@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PropertyChanger.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace PropertyChanger
         {
             InitializeComponent();
 
-            DataContext = new Class1();
+            DataContext = new SelectedFileViewModel();
         }
     }
 }

@@ -7,13 +7,13 @@ using System.Windows.Input;
 
 namespace PropertyChanger
 {
-    public class Class2 : ICommand
+    public class RelayCommand : ICommand
     {
         private Action mAction;
 
         public event EventHandler CanExecuteChanged = (sender, e) => { };
 
-        public Class2(Action action)
+        public RelayCommand(Action action)
         {
             mAction = action;
         }

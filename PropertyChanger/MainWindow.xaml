@@ -12,14 +12,14 @@
         <TextBlock TextWrapping="Wrap" Margin="20">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
         </TextBlock>
-        <TextBlock>Select a file or fill in the path to the file</TextBlock>
+        <TextBlock>Fill in the path to the file and press the Select File button</TextBlock>
         <Grid Margin="0, 0, 0, 10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="0.33*" />
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center"/>
-            <Button Grid.Column="1" >Select File</Button>
+            <TextBox Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" Text="{Binding FullPath, Mode=OneWayToSource}"/>
+            <Button Grid.Column="1" Command="{Binding SelectCommand}">Select File</Button>
         </Grid>
         <Grid Margin="0,20">
             <Grid.ColumnDefinitions>
@@ -35,11 +35,11 @@
             <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin="5, 0">Modification time</Label>
             <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Margin="5, 0, 0, 0">Last access time</Label>
 
-            <TextBox Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" Margin="0, 0, 5, 0"></TextBox>
-            <TextBox Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" Margin="5, 0"></TextBox>
-            <TextBox Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" Margin="5, 0, 0, 0"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" Text="{Binding CreationTime}" Margin="0, 0, 5, 0"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" Text="{Binding ModificationTime}" Margin="5, 0"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" Text="{Binding LastAccessTime}" Margin="5, 0, 0, 0"></TextBox>
         </Grid>
-        <Button HorizontalAlignment="Center" Width="100" Margin="30" Command="{Binding ButtonCommand}">Apply</Button>
-        <Label Content="{Binding Test}" HorizontalAlignment="Center"/>
+        <Button HorizontalAlignment="Center" Width="100" Margin="30">Apply</Button>
+        <Label HorizontalAlignment="Center"/>
     </StackPanel>
 </Window>

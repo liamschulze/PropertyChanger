@@ -41,5 +41,18 @@ namespace PropertyChanger.MVVM.Model
         }
 
         #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="fullPath">The full path of the file</param>
+        public SelectedFile(string fullPath)
+        {
+            FullPath = fullPath;
+        }
+
+        #endregion
     }
 }
