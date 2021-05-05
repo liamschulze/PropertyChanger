@@ -18,8 +18,13 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="0.33*" />
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
             <TextBox Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" Text="{Binding FullPath, Mode=OneWayToSource}"/>
             <Button Grid.Column="1" Command="{Binding SelectCommand}">Select File</Button>
+            <Label Grid.Row="1" Content="Please select a valid file." Visibility="{Binding FileErrorMessage}"/>
         </Grid>
         <Grid Margin="0,20">
             <Grid.ColumnDefinitions>
@@ -35,9 +40,9 @@
             <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin="5, 0">Modification time</Label>
             <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Margin="5, 0, 0, 0">Last access time</Label>
 
-            <TextBox Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" Text="{Binding CreationTime}" Margin="0, 0, 5, 0"></TextBox>
-            <TextBox Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" Text="{Binding ModificationTime}" Margin="5, 0"></TextBox>
-            <TextBox Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" Text="{Binding LastAccessTime}" Margin="5, 0, 0, 0"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding CreationTime}" Margin="0, 0, 5, 0"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding ModificationTime}" Margin="5, 0"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding LastAccessTime}" Margin="5, 0, 0, 0"></TextBox>
         </Grid>
         <Button HorizontalAlignment="Center" Width="100" Margin="30">Apply</Button>
         <Label HorizontalAlignment="Center"/>

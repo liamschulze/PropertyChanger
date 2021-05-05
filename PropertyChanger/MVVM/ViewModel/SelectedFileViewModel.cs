@@ -4,10 +4,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PropertyChanger.MVVM.ViewModel
 {
+    /// <summary>
+    /// The view model for the file
+    /// </summary>
     class SelectedFileViewModel : INotifyPropertyChanged
     {
         #region Events
@@ -38,9 +42,11 @@ namespace PropertyChanger.MVVM.ViewModel
         /// </summary>
         public string LastAccessTime { get; set; }
 
-        #endregion
+        public Visibility FileErrorMessage { get; set; } = Visibility.Hidden;
 
-        #region Commands
+        public bool IsEnabled { get; set; } = false;
+
+        #endregion
 
         #region Constructor
 
@@ -50,6 +56,8 @@ namespace PropertyChanger.MVVM.ViewModel
         }
 
         #endregion
+
+        #region Commands
 
         public ICommand SelectCommand { get; set; }
 
@@ -74,6 +82,12 @@ namespace PropertyChanger.MVVM.ViewModel
                 CreationTime = times[0];
                 ModificationTime = times[1];
                 LastAccessTime = times[2];
+
+                // Enable the text boxes
+                IsEnabled = true;
+
+                // Hide the error message
+                FileErrorMessage = Visibility.Hidden;
             }
             catch
             {
@@ -81,8 +95,13 @@ namespace PropertyChanger.MVVM.ViewModel
                 CreationTime = string.Empty;
                 ModificationTime = string.Empty;
                 LastAccessTime = string.Empty;
-            }
 
+                // Disable text boxes
+                IsEnabled = false;
+
+                // Show the error message
+                FileErrorMessage = Visibility.Visible;
+            }
         }
 
         #endregion
