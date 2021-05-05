@@ -23,6 +23,8 @@ namespace PropertyChanger
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new Class1();
         }
     }
 }

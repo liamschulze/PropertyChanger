@@ -39,6 +39,7 @@
             <TextBox Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" Margin="5, 0"></TextBox>
             <TextBox Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" Margin="5, 0, 0, 0"></TextBox>
         </Grid>
-        <Button HorizontalAlignment="Center" Width="100" Margin="30">Apply</Button>
+        <Button HorizontalAlignment="Center" Width="100" Margin="30" Command="{Binding ButtonCommand}">Apply</Button>
+        <Label Content="{Binding Test}" HorizontalAlignment="Center"/>
     </StackPanel>
 </Window>
