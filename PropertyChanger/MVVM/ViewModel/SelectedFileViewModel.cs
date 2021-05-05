@@ -42,9 +42,20 @@ namespace PropertyChanger.MVVM.ViewModel
         /// </summary>
         public string LastAccessTime { get; set; }
 
+        /// <summary>
+        /// Determines if the error message is showen
+        /// </summary>
         public Visibility FileErrorMessage { get; set; } = Visibility.Hidden;
 
+        /// <summary>
+        /// Enables the text boxed to enter the dates
+        /// </summary>
         public bool IsEnabled { get; set; } = false;
+
+        /// <summary>
+        /// The output if the action was successful or not
+        /// </summary>
+        public string ApplyOutput { get; set; }
 
         #endregion
 
@@ -53,6 +64,8 @@ namespace PropertyChanger.MVVM.ViewModel
         public SelectedFileViewModel()
         {
             SelectCommand = new RelayCommand(SelectFile);
+
+            ApplyCommand = new RelayCommand(ChangeDates);
         }
 
         #endregion
@@ -60,6 +73,8 @@ namespace PropertyChanger.MVVM.ViewModel
         #region Commands
 
         public ICommand SelectCommand { get; set; }
+
+        public ICommand ApplyCommand { get; set; }
 
         #endregion
 
@@ -88,6 +103,9 @@ namespace PropertyChanger.MVVM.ViewModel
 
                 // Hide the error message
                 FileErrorMessage = Visibility.Hidden;
+
+                // Clear the output
+                ApplyOutput = string.Empty;
             }
             catch
             {
@@ -102,6 +120,36 @@ namespace PropertyChanger.MVVM.ViewModel
                 // Show the error message
                 FileErrorMessage = Visibility.Visible;
             }
+        }
+
+        private void ChangeDates()
+        {
+            // Create empty DateTimes
+            DateTime creationTime;
+            DateTime modificationTime;
+            DateTime lastAccessTime;
+
+            try
+            {
+                // Try to parse the inputs to DateTimes
+                creationTime = DateTime.Parse(CreationTime);
+                modificationTime = DateTime.Parse(ModificationTime);
+                lastAccessTime = DateTime.Parse(LastAccessTime);
+            }
+            catch
+            {
+                // Otherwise set an errormessage to the output
+                ApplyOutput = "Please enter a valid date";
+
+                // And exit the function
+                return;
+            }
+
+            // Set the times
+            var isSuccess = FileProperties.SetTimes(creationTime, modificationTime, lastAccessTime, FullPath);
+
+            // Set the output
+            ApplyOutput = isSuccess ? "The times of the file have been changed successfully" : "Something went wrong. Please try again.";
         }
 
         #endregion

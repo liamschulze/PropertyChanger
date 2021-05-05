@@ -10,7 +10,7 @@
     <StackPanel Margin="20">
         <TextBlock HorizontalAlignment="Center" FontSize="25">Property Changer</TextBlock>
         <TextBlock TextWrapping="Wrap" Margin="20">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            Welcome to Property Changer. Select a file and change its creation, last access and modification time of a file by selecting a file and changing its properties. Simply change the dates in the text boxes and click the apply button.
         </TextBlock>
         <TextBlock>Fill in the path to the file and press the Select File button</TextBlock>
         <Grid Margin="0, 0, 0, 10">
@@ -22,7 +22,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" Text="{Binding FullPath, Mode=OneWayToSource}"/>
+            <TextBox Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" Margin="0, 0, 10, 0" Text="{Binding FullPath, Mode=OneWayToSource}"/>
             <Button Grid.Column="1" Command="{Binding SelectCommand}">Select File</Button>
             <Label Grid.Row="1" Content="Please select a valid file." Visibility="{Binding FileErrorMessage}"/>
         </Grid>
@@ -40,11 +40,11 @@
             <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin="5, 0">Modification time</Label>
             <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Margin="5, 0, 0, 0">Last access time</Label>
 
-            <TextBox Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding CreationTime}" Margin="0, 0, 5, 0"></TextBox>
-            <TextBox Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding ModificationTime}" Margin="5, 0"></TextBox>
-            <TextBox Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding LastAccessTime}" Margin="5, 0, 0, 0"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding CreationTime, Mode=TwoWay}" Margin="0, 0, 5, 0" />
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding ModificationTime, Mode=TwoWay}" Margin="5, 0" />
+            <TextBox Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding LastAccessTime, Mode=TwoWay}" Margin="5, 0, 0, 0" />
         </Grid>
-        <Button HorizontalAlignment="Center" Width="100" Margin="30">Apply</Button>
-        <Label HorizontalAlignment="Center"/>
+        <Button HorizontalAlignment="Center" Width="100" Margin="0, 20, 0, 5" Command="{Binding ApplyCommand}">Apply</Button>
+        <Label HorizontalAlignment="Center" Content="{Binding ApplyOutput}"/>
     </StackPanel>
 </Window>
