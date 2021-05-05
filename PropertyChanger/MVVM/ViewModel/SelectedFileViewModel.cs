@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Win32;
 
 namespace PropertyChanger.MVVM.ViewModel
 {
@@ -85,8 +87,18 @@ namespace PropertyChanger.MVVM.ViewModel
         /// </summary>
         private void SelectFile()
         {
-            // Replace all forward slahes with backslashes
-            FullPath.Replace('/', '\\');
+            // I know this shouldn't be done this way but I don't know how to do it otherwise
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            bool? result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                openFileDialog.Title = "Select a file";
+                openFileDialog.Filter = "All files (*.*) | *.*";
+
+                FullPath = openFileDialog.FileName;
+            }
 
             // Get the times
             var times = FileProperties.GetTimes(FullPath);

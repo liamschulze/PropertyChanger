@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PropertyChanger"
+        xmlns:viewmodel="clr-namespace:PropertyChanger.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:SelectedFileViewModel}"
         mc:Ignorable="d"
         Title="Property Changer" Height="450" Width="800" FontSize="14">
 
@@ -12,7 +12,7 @@
         <TextBlock TextWrapping="Wrap" Margin="20">
             Welcome to Property Changer. Select a file and change its creation, last access and modification time of a file by selecting a file and changing its properties. Simply change the dates in the text boxes and click the apply button.
         </TextBlock>
-        <TextBlock>Fill in the path to the file and press the Select File button</TextBlock>
+        <TextBlock>Select a file by clicking the select file button</TextBlock>
         <Grid Margin="0, 0, 0, 10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -22,7 +22,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" Margin="0, 0, 10, 0" Text="{Binding FullPath, Mode=OneWayToSource}"/>
+            <TextBox Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" Margin="0, 0, 10, 0" IsReadOnly="True" Text="{Binding FullPath}"/>
             <Button Grid.Column="1" Command="{Binding SelectCommand}">Select File</Button>
             <Label Grid.Row="1" Content="Please select a valid file." Visibility="{Binding FileErrorMessage}"/>
         </Grid>
