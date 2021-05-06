@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:PropertyChanger.Installer"
+"ProjectName" = "8:Property Changer"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -231,7 +231,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PropertyChanger.Installer"
         "ProductCode" = "8:{C2320F51-C43A-4CDA-82EA-0C37A8CB9A64}"
-        "PackageCode" = "8:{1E34ACCE-9FF1-4057-A38F-1EEF650864DB}"
+        "PackageCode" = "8:{399F0576-C278-4436-924E-06B33879BE99}"
         "UpgradeCode" = "8:{A88A1B5A-3CF2-4FBC-A688-4A9204C765EA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -351,6 +351,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_61700C0D3E034802AD220AFE6DB75607"
+            {
+            "Name" = "8:Property Changer"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_4FAD7D906D434A31B904DE077F98789F"
+            "Folder" = "8:_BEAA3F0DD7A046FA817EC10F683BC89C"
+            "WorkingFolder" = "8:_0BC18D5E8C474B60BF4845B29E9470CA"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9BDCC195B07E495EBB3D61AEB20DC7E2"
+            {
+            "Name" = "8:Property Changer"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_4FAD7D906D434A31B904DE077F98789F"
+            "Folder" = "8:_810CE9AA03B34E248CC21A74B76F48F8"
+            "WorkingFolder" = "8:_0BC18D5E8C474B60BF4845B29E9470CA"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -755,7 +783,7 @@
             "SourcePath" = "8:..\\PropertyChanger\\obj\\Release\\PropertyChanger.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_810CE9AA03B34E248CC21A74B76F48F8"
+            "Folder" = "8:_0BC18D5E8C474B60BF4845B29E9470CA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
