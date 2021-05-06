@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodel="clr-namespace:PropertyChanger.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:SelectedFileViewModel}"
         mc:Ignorable="d"
+        ResizeMode="CanMinimize"
         Title="Property Changer" Height="450" Width="800" FontSize="14">
 
     <StackPanel Margin="20">

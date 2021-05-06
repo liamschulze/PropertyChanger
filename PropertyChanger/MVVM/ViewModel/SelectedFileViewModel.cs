@@ -88,6 +88,7 @@ namespace PropertyChanger.MVVM.ViewModel
         private void SelectFile()
         {
             // I know this shouldn't be done this way but I don't know how to do it otherwise
+            // TODO: Do  this in a MVVM conform way
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             bool? result = openFileDialog.ShowDialog();
